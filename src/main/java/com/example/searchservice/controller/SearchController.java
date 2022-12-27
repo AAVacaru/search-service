@@ -29,7 +29,7 @@ public class SearchController {
         if(searchKey.equals("")){
             return ResponseEntity.ok(blogDtoList);
         } else {
-            List<BlogDto> searchedBlogs = blogDtoList.stream().filter(b -> b.getTitle().contains(searchKey))
+            List<BlogDto> searchedBlogs = blogDtoList.stream().filter(b -> b.getTitle().toLowerCase().contains(searchKey.toLowerCase()))
                     .collect(Collectors.toList());
             return ResponseEntity.ok(searchedBlogs);
         }
